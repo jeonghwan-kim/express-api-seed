@@ -1,0 +1,27 @@
+{
+  "name": "express-api-seed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "lodash": "^4.3.0",
+    "morgan": "^1.6.1",
+    "body-parser": "^1.13.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nodemon": "^2.0.2",
+    "gulp-plumber": "^1.0.0",
+    "mocha": "^2.4.5",
+    "should": "^8.2.2",
+    "supertest": "^1.2.0"
+  }
+}
