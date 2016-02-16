@@ -3,5 +3,6 @@
  */
 
 module.exports = {
-
+  domain: 'localhost',
+  port: process.env.PORT || 80
 };

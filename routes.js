@@ -4,7 +4,7 @@
  */
 
 module.exports = function (app) {
-  app.use('/ping', require('./api/ping'));
+  app.use('/v1/ping', require('./api/v1/ping'));
 
   app.use('/', function (req, res) {
     res.json({message: 'hello world!'});
