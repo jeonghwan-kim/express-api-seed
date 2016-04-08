@@ -1,17 +1,23 @@
 Express API Seed
 ================
 
-## Gulp
+RESTful API sample using ES6.
 
-* Run server: `$ gulp`
-* Unit test: `$ gulp test`
+
+## Run
+
+```
+npm start
+```
 
 
 ## Swagger
 
-Run `$gulp` and visit `/swagger`
+Visit [http://localhost:3001/swagger](http://localhost:3001/swagger).
 
 
 ## Unit test
 
-`gulp test` for running mocha test. 
+```
+gulp test
+``` 

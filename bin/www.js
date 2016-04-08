@@ -1,12 +1,17 @@
 /**
- * Created by Chris on 2016. 2. 15..
+ * Created by Chris on 2016. 4. 8..
  */
 
-var app = require('../app'),
-    server;
+"use strict";
 
-app.set('port', process.env.PORT || 3000);
+let app = require('../app');
+const config = require('../app/config/environment');
 
-server = app.listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + server.address().port);
+app.set('port', process.env.PORT || 3001);
+
+const server = app.listen(app.get('port'), () => {
+  let tag = config.logTags.startupInfo;
+  let port = server.address().port;
+  let mode = process.env.NODE_ENV;
+  console.log(`${tag} express-api-seed server listening on port ${port} ${mode} mode`);
 });
