@@ -21,3 +21,12 @@ Visit [http://localhost:3001/swagger](http://localhost:3001/swagger).
 ```
 gulp test
 ``` 
+
+## Todo 
+
+* [x] Swagger: swagger-ui, Swagger json hosting
+* [ ] ORM: Sequelize, mysql,
+* [ ] Business logic in lib folder
+* [ ] Authenticaion APIs (using jwt)
+
+
