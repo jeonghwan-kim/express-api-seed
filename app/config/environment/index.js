@@ -9,6 +9,10 @@ let all = {
   logTags: {
     startupInfo: '[STARTUP_INFO]',
     startupError: '[STARTUP_ERROR]',
+  },
+  
+  errorCodes: {
+    UndefinedErrorCode: 'UndefinedErrorCode'
   }
   
 };

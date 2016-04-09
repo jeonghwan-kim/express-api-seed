@@ -30,12 +30,12 @@ module.exports = () => {
   // Redefine status token
   morgan.token('status', (req, res) => {
     let color;
-    if      (res.statusCode < 300)  color = green;
-    else if (res.statusCode < 400)  color = cyan;
-    else if (res.statusCode < 500)  color = yellow;
-    else if (res.statusCode < 600)  color = red;
+    if      (res._statusCode < 300)  color = green;
+    else if (res._statusCode < 400)  color = cyan;
+    else if (res._statusCode < 500)  color = yellow;
+    else if (res._statusCode < 600)  color = red;
     else                            color = grey;
-    return color + res.statusCode + endColor;
+    return color + res._statusCode + endColor;
   });
 
   // Create a token for request body

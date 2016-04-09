@@ -28,5 +28,5 @@ gulp test
 * [ ] ORM: Sequelize, mysql,
 * [ ] Business logic in lib folder
 * [ ] Authenticaion APIs (using jwt)
-
+* [ ] Common Error Handler (404, 500)
 
