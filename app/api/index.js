@@ -1,17 +1,22 @@
-/**
- * Created by Chris on 2016. 4. 9..
- */
-
 "use strict";
 
 const _ = require('lodash');
-const qs = require('querystring');
 const config = require('../config/environment');
 const errors = require('../components/errors');
-const errorCodes = require('../config/environment').errorCodes;
 
 
-let api = {
+const api = {
+
+  _statusCode: err => err.statusCode || 500,
+
+  _formatHttpError: err => {
+
+    return {
+      code: err.error.code || errors.Codes.UndefinedErrorCode,
+      message: err.error.message
+    }
+  },
+
   /**
    * Format HTTP Response
    * @param {Function} apiMethod 
@@ -33,22 +38,13 @@ let api = {
   },
 
   error404: (req, res, next) => {
-    next(new errors.NotFoundError());
+    next(new errors.NotFound());
   },
 
   error: (err, req, res, next) => {
     res
         .status(api._statusCode(err))
         .json({ error: api._formatHttpError(err) });
-  },
-
-  _statusCode: err => err.statusCode || 500,
-
-  _formatHttpError: err => {
-    return {
-      errorCode: err.errorCode || errorCodes.UndefinedErrorCode,
-      message: _.isString(err) ? error: err.message
-    }
   }
 
 };

@@ -13,13 +13,13 @@ module.exports = () => {
   };
 
   if (process.env.NODE_ENV === 'production') {
-    tokens = ':remote-addr - :remote-user [:date[clf]] ' + tokens;
+    tokens = `:remote-addr - :remote-user [:date[clf]] ${tokens}`;
   }
 
   // Create a token for request body
   morgan.token('body', (req, res) => {
     if (req.method.toUpperCase() === 'POST' || req.method.toUpperCase() === 'PUT') {
-      return `Body: ${JSON.stringify(req.body)}`;
+      return `[Body] ${JSON.stringify(req.body)}`;
     }
   });
 

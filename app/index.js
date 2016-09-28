@@ -1,15 +1,10 @@
-/**
- * Created by Chris on 2016. 4. 8..
- */
-
 "use strict";
 
-require('./components/startup-check')();
+const app = require('express')();
 
-let app = require('express')();
-
-require('./config/express')(app);
-require('./config/swagger')(app);
-require('./routes')(app);
+require('./components/startup-check')(); // done
+require('./config/express')(app); // todo
+require('./config/swagger')(app); // todo
+require('./routes')(app); // todo
 
 module.exports = app;
