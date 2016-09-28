@@ -5,8 +5,8 @@
 "use strict";
 
 const router = require('express').Router();
-const constroller = require('./ping.controller');
+const controller = require('./ping.controller');
 
-router.get('/', constroller.index);
+router.get('/', controller.index);
 
 module.exports = router;
