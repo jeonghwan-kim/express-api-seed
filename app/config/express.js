@@ -10,7 +10,7 @@ const expressSettings = app => {
   app.use(bodyParser.urlencoded({ extended: true }));
 
   // Skip logging on test mode
-  if (app.get('env') === 'test') {
+  if (app.get('env') !== 'test') {
     app.use(morgan());
   }
 
