@@ -1,6 +1,7 @@
 'use strict';
 
 const models = require('../models');
+const errors = require('../components/errors');
 
 exports.index = (limit, offset) => {
   return models.User.findAll({
@@ -17,14 +18,37 @@ exports.show = id => {
   })
 };
 
-exports.create = options => {
-  return Promise.resolve('create');
+exports.create = name => {
+  return models.User.create({
+    name: name
+  }).catch(err => {
+    if (err.name  === 'SequelizeUniqueConstraintError') {
+      return Promise.reject(errors.Codes.Conflict);
+    }
+    return Promise.reject(err);
+  });
 };
 
-exports.update = options => {
-  return Promise.resolve('update');
+exports.update = (id, name) => {
+  return models.User.findOne({
+    where: {
+      id: id
+    }
+  }).then(user => {
+    if (!user) {
+      return Promise.reject(errors.Codes.NoUser);
+    }
+    user.name = name;
+    return user.save();
+  })
 };
 
-exports.destroy = options => {
-  return Promise.resolve('destroy');
+exports.destroy = id => {
+  return models.User.destroy({
+    where: {
+      id: id
+    }
+  }).then(count => {
+    return count ? Promise.resolve() : Promise.reject(errors.Codes.NoUser);
+  });
 };

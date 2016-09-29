@@ -8,7 +8,10 @@ class ErrorCode {
 }
 
 const ErrorCodes = {
+  Conflict:           new ErrorCode('conflict', 'conflict'),
+  ConflictUser:       new ErrorCode('conflictUser', 'conflict user name'),
   EmailValidation:    new ErrorCode('emailValidation', 'email  alidation error'),
+  EmptyName:          new ErrorCode('emptyName', 'empty name'),
   BadRequest:         new ErrorCode('badRequest', 'BedRequest'),
   InvalidToken:       new ErrorCode('invalidToken', 'invalid token'),
   InvalidId:          new ErrorCode('invalidId', 'invalid id'),
@@ -30,24 +33,26 @@ class NotFound extends Error {
 }
 
 class BadRequest extends Error {
-  constructor (message) {
-    super(message || 'BadRequest');
+  constructor (errorCode) {
+    super((errorCode && errorCode.message) || ErrorCodes.NotFound.message);
     this.statusCode = 400;
-    this.error = ErrorCodes.BadRequest
+    this.error = errorCode || ErrorCodes.BadRequest
   }
 }
 
 class Conflict extends Error {
-  constructor (message) {
-    super(message || 'Conflict');
+  constructor (errorCode) {
+    super((errorCode && errorCode.message) || ErrorCodes.Conflict.message);
     this.statusCode = 409;
+    this.error = errorCode || ErrorCodes.Conflict;
   }
 }
 
 class Unauthorized extends Error {
-  constructor (message) {
-    super(message || 'Unauthorized');
+  constructor (errorCode) {
+    super((errorCode && errorCode.message) || ErrorCodes.Unauthorized.message);
     this.statusCode = 401;
+    this.error = errorCode || ErrorCodes.Unauthorized;
   }
 }
 

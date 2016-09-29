@@ -28,9 +28,9 @@ const api = {
 
       apiMethod(options)
           .then(result => {
-            let statusCode = result._statusCode || 200;
+            let statusCode = result.statusCode || 200;
             let body = result.body || result;
-            delete result._statusCode;
+            delete result.statusCode;
             res.status(statusCode).json(body);
           })
           .catch(err => next(err));
