@@ -4,29 +4,20 @@ Express API Seed
 RESTful API sample using ES6.
 
 
-## Run
-
-```
-npm start
-```
+## Todo
 
 
-## Swagger
+[x] Common error handling (404, 500)
 
-Visit [http://localhost:3001/swagger](http://localhost:3001/swagger).
+[x] Documentation: swagger, swagger-ui, swagger-parser
+
+[ ] ORM: Sequelize, mysql,
+
+[ ] Business logic in lib folder
+
+[ ] Authenticaion APIs (using jwt)
 
 
-## Unit test
+ 
 
-```
-gulp test
-``` 
-
-## Todo 
-
-* [x] Swagger: swagger-ui, Swagger json hosting
-* [ ] ORM: Sequelize, mysql,
-* [ ] Business logic in lib folder
-* [ ] Authenticaion APIs (using jwt)
-* [ ] Common Error Handler (404, 500)
 
