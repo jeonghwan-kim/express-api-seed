@@ -1,17 +1,12 @@
-/**
- * Created by Chris on 2016. 4. 8..
- */
+'use strict';
 
-"use strict";
+const app = require('../app');
+const config = require('../app/config/environment');
+const syncDatabase = require('./sync-database');
+const runServer = require('./run-server');
 
-let app = require('../app');
-const logTags = require('../app/components/logTags');
-
-app.set('port', process.env.PORT || 3000);
-
-const server = app.listen(app.get('port'), () => {
-  let tag = logTags.StartupInfo;
-  let port = server.address().port;
-  let mode = process.env.NODE_ENV;
-  console.log(`${tag} express-api-seed server listening on port ${port} ${mode} mode`);
-});
+Promise.resolve()
+    .then(() => syncDatabase({ force: config.database.syncForce }))
+    .then(msg => console.log(msg))
+    .then(() => runServer(app,  process.env.PORT || 3000))
+    .then(msg => console.log(msg));

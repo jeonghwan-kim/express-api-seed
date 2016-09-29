@@ -11,7 +11,7 @@ RESTful API sample using ES6.
 
 [x] Documentation: swagger, swagger-ui, swagger-parser
 
-[ ] ORM: Sequelize, mysql,
+[x] ORM: Sequelize, mysql
 
 [ ] Business logic in lib folder
 
