@@ -13,7 +13,7 @@ RESTful API sample using ES6.
 
 [x] ORM: Sequelize, mysql
 
-[ ] Business logic in lib folder
+[x] Business logic in lib folder
 
 [ ] Authenticaion APIs (using jwt)
 

@@ -1,9 +1,10 @@
 'use strict';
 
 const logTags = require('./logTags');
-let config;
 
-let startupCheck = {
+let config = require('../config/environment');
+
+const startupCheck = {
   check: () => {
     let errors = startupCheck._environmentVariables();
     if (errors.length) {
@@ -13,14 +14,8 @@ let startupCheck = {
   },
 
   _environmentVariables: () => {
-    let errors = [];
-
-    if (['production', 'development', 'test'].indexOf(process.env.NODE_ENV) === -1) {
-      process.env.NODE_ENV = 'development';
-    }
-
-    config = require('../config/environment');
     const checkList = config.checkList || [];
+    let errors = [];
 
     return checkList.reduce((result, checkItem) => {
       let error = startupCheck._environmentVariable(checkItem);

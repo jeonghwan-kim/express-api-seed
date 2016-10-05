@@ -1,6 +1,5 @@
 "use strict";
 
-const _ = require('lodash');
 const config = require('../config/environment');
 const errors = require('../components/errors');
 
@@ -10,7 +9,6 @@ const api = {
   _statusCode: err => err.statusCode || 500,
 
   _formatHttpError: err => {
-
     return {
       code: err.error.code || errors.Codes.UndefinedErrorCode,
       message: err.error.message
@@ -24,7 +22,7 @@ const api = {
    */
   http: apiMethod => {
     return (req, res, next) => {
-      let options = _.extend({}, req.params, req.query, req.body);
+      let options = Object.assign({}, req.params, req.query, req.body);
 
       apiMethod(options)
           .then(result => {
