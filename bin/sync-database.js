@@ -8,5 +8,9 @@ module.exports = options => {
       .then(() => {
         const msg = `${logTags.StartupInfo} Sync Database ${JSON.stringify(options)}`;
         return Promise.resolve(msg);
-      });
+      })
+      .catch(err => {
+        const msg = `${logTags.StartupError} Sync Database Fail ${JSON.stringify(err, null, 2)}`;
+        return Promise.reject(msg);
+      })
 };

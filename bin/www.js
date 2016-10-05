@@ -9,4 +9,5 @@ Promise.resolve()
     .then(() => syncDatabase({ force: config.database.syncForce }))
     .then(msg => console.log(msg))
     .then(() => runServer(app,  process.env.PORT || 3000))
-    .then(msg => console.log(msg));
+    .then(msg => console.log(msg))
+    .catch(err => console.error(err));
